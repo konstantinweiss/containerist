@@ -16,3 +16,9 @@ xcuserdata
 # svn & cvs
 .svn
 CVS
+
+# containerist
+hub/config.php
+hub/wiki/*
+hub/skins/12/*
+hub/boulder/*

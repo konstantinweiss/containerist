@@ -1,0 +1,15 @@
+CTN: navtree
+items:
+  - 
+    label: Home
+    url: index
+  -
+    label: Paintings
+    url: painting
+    children:
+  -
+    label: The Artist
+    url: about
+  -
+    label: Play
+    url: play

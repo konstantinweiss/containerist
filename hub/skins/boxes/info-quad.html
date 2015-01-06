@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+<div class="container info-quad {{class}}">
+
+{{#items}}
+	<div class="item">
+		<div class="item_content">
+			{{#title}}
+			<p class="h">{{{title}}}</p>
+			{{/title}}
+			{{#image}}
+			<img src="{{image}}">
+			{{/image}}
+			{{#text}}
+			<p class="text">{{{text}}}</p>
+			{{/text}}
+		</div>
+	</div>
+
+{{/items}}
+	
+</div>
+<div class="clear">&nbsp;</div>

@@ -1,0 +1,55 @@
+.container.video {
+  position: relative; /* keeps the aspect ratio */
+  padding-bottom: 56.25%; /* fine tunes the video positioning */
+  padding-top: 60px;
+  overflow: hidden;
+}
+
+.container.video iframe,
+.container.video object,
+.container.video embed {
+  position: absolute;
+  top: 0; 
+  left: 25px;
+}
+
+/* D - desktop */
+@media only screen and (min-width: 1200px) {
+  .container.video iframe,
+  .container.video object,
+  .container.video embed {
+    width: 1150px;
+    height: 650px;
+  }
+}
+
+/* C - tablet horizontal */
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+  .container.video iframe,
+  .container.video object,
+  .container.video embed {
+    width:  850px;
+    height: 475px;
+  }
+}
+
+/* B - tablet vertical */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .container.video iframe,
+  .container.video object,
+  .container.video embed {
+    width:  550px;
+    height: 325px;
+  }
+}
+
+/* A - phone vertical */
+@media only screen and (max-width: 599px) {
+  .container.video iframe,
+  .container.video object,
+  .container.video embed {
+    width: 250px;
+    height: 150px;
+  }
+}
+

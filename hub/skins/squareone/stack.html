@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- SOURCE:
+
+{{{source}}}
+
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{{title}}</title>
+<link rel="stylesheet" type="text/css" media="all" href="{{webbase}}grid.css" />
+<link rel="stylesheet" type="text/css" media="all" href="{{webbase}}typography.css" />
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+
+<style>
+body {
+  -webkit-transition: all 0.5s ease-in-out;
+  /*opacity: 0;*/
+}
+  .ctn--loading {
+    min-height: 50px;
+    overflow: hidden;
+    background: url('{{webbase}}app/loading.gif') no-repeat scroll 50% 50% #fff;
+  }
+  .contents {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  #source {
+    display: none;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="containers" id="preview">
+    {{{containers_preview}}}
+
+    {{{payload_html}}}
+
+    {{^containers_preview}}{{^payload_html}}
+    {{#containers}}
+    <div class="ctn-outer ctn--loading" show="embed" data-source="{{renderer}}{{origin}}{{renderer_suffix}}">
+      <div class="contents"></div>
+    </div>
+    {{/containers}}
+    {{/payload_html}}{{/containers_preview}}
+  </div>
+  <!-- end of .containers -->
+
+  <script src="{{webbase}}app/jquery.min.js"></script>
+  <script type="text/javascript" src="{{webbase}}app/containerist.js"></script>
+
+  <script>
+  containerist.init({
+    onFinish: function(){
+      $('body').css('opacity', 1);
+    }
+  });
+  </script>
+
+
+
+  {{{admin_html}}}
+  
+  {{#admin}}
+  {{^editable}}
+  <div class="containerist-ui">
+    <div class="edit-toggle">
+      <a href="{{admin}}" class="btn">Edit</a>
+    </div>
+  </div>
+  {{/editable}} 
+  {{/admin}}
+
+
+</body>
+</html>

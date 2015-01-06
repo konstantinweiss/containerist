@@ -1,0 +1,12 @@
+CTN: nav
+title: {{title}}
+label: {{label}}
+stylesheet: {{stylesheet}}
+class: {{class}}
+items:
+{{#items}}
+  -
+    label: {{label}}
+    url: {{url}}
+    class: {{selected}}
+{{/items}}

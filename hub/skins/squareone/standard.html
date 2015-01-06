@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+<section class="container standard cf {{class}}">
+	{{#admin}}
+	<div class="D16 C12 B8 A4">
+		<a href="/admin/edit/{{edit}}" class="btn">edit</a>
+	</div>
+	{{/admin}}
+	<div class="D10 C8 B8 A4">
+		{{{markdown}}}
+	</div>
+	{{#image}}
+
+	<div class="D5 C4 B0 A0">
+		<img src="{{{image}}}">
+	</div>
+	{{/image}}
+	
+	{{#markdown1}}
+
+	<div class="D1 C0 B0 A0">
+		&nbsp;
+	</div>
+
+	<div class="D5 C3 B0 A0">
+		{{{markdown1}}}
+	</div>
+	{{/markdown1}}
+</section>

@@ -1,0 +1,14 @@
+@import url(/theme/tiles.css);
+
+.tiles.topics {
+}
+
+.tiles.topics .def H2 {
+	font-size: 300px;
+	line-height: 300px;
+	margin-left: 0;
+	padding-left: 0;
+	font-weight: bold;
+	text-align: center;
+}
+

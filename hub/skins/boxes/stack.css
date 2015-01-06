@@ -1,0 +1,94 @@
+/* @override http://res.ctn.io/page.css */
+
+/* --- PAGE --- */
+a {
+  color: #06f;
+  text-decoration: none;
+}
+a:visited {
+	color: #09f;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+body
+{
+	width: 1201px;
+	display: block;
+	background: #fff;
+	margin: 0 auto;
+	padding: 0;
+	margin-top: -1px;
+/*  background: url('http://res.containerist.org/page_bg.png') repeat 0px 0px; */
+}
+
+.ctn-loading {
+	border: 1px solid #eee;
+	text-align: center;
+	width: 1199px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 1px;
+	padding-top: 0px;
+	padding-bottom: 20px;
+	background-color: #eee;
+	font-weight: bold;
+	color: #999;
+}
+
+@media screen and (max-width: 599px) {
+	html body,
+	.ctn-loading {
+		width: 301px;
+	}
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
+	body,
+	.ctn-loading {
+		width: 601px;
+	}
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+	body,
+	.ctn-loading {
+		width: 901px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	body,
+	.ctn-loading {
+		width: 1201px;
+	}
+}
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+}
+
+.cf:after {
+		clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+		*zoom: 1;
+}

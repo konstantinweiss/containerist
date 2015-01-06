@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+<section class="container triples {{class}}">
+
+{{#title}}
+<div class"D16 C12 B8 A4">
+	<h2>{{title}}</h2>
+</div>
+{{/title}}
+
+{{#def}}
+<div class="D4 C4 B4 A4 item def">
+	{{#anchor}} <a name="{{anchor}}"></a>{{/anchor}}
+	{{#title}}<h2>{{{title}}}</h2>{{/title}}
+	<p>{{{text}}}</p>
+</div>
+{{/def}}
+
+{{#items}}
+  {{#url}}<a href="{{url}}" class="item D5 C4 B4 A4">{{/url}} 
+  {{^url}}<div class="item D5 C4 B4 A4">{{/url}} 
+		{{#title}}<h3>{{{title}}}</h3>{{/title}}
+		{{#image}}<div class="img"><img src="{{image}}"></div>{{/image}}
+		<p>{{{text}}}</p>
+	{{#url}}</a>{{/url}}
+  {{^url}}</div>{{/url}}
+{{/items}}
+</section>

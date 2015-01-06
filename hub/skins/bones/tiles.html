@@ -1,0 +1,12 @@
+
+<section class="CTN tiles {{class}}">
+  <link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+{{#items}}
+  <a href="{{url}}" class="item">
+    {{#title}}<h4>{{{title}}}</h4>{{/title}}
+    {{#text}}<p>{{{text}}}</p>{{/text}} 
+    {{#linktext}}<span class="linktext">{{{linktext}}}</span>{{/linktext}}
+    {{#image}}<div class="img"><img src="{{image}}"></div>{{/image}}
+  </a>
+{{/items}}
+</section>

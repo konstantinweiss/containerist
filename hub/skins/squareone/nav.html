@@ -1,0 +1,16 @@
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+<section class="container nav {{class}}">
+	<div class="D16 C12 B8 A4 inner">
+	{{#logo}}<img src="{{logo}}" class="logo"/>{{/logo}}
+	{{#title}}<span class="title">{{{title}}}</span>{{/title}}
+	<ul>
+		
+	{{#label}}	
+	  <li><span class="label">{{{label}}}</span></li>
+	{{/label}}
+	{{#items}}
+		<li><a class="{{class}}" href="{{url}}">{{{label}}}</a></li>
+	{{/items}}
+	</ul>
+	</div>
+</section>

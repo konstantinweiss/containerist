@@ -1,0 +1,4 @@
+CTN: standard
+class: intro
+---
+{{#items}}{{#url}}{{#selected}}**{{/selected}}[{{label}}]({{url}}){{#selected}}**{{/selected}}{{/url}}{{^url}}{{label}}{{/url}} {{/items}}

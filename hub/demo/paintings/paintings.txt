@@ -1,0 +1,83 @@
+CTN: paintings
+items: 
+	-
+		id: 		tropenschnee
+		title: 		'Tropenschnee'
+		year: 		2011-2012
+		size:		100 x 220 cm
+		material: 	'Öl auf Leinwand'
+	-
+		id: 		wiegenlicht
+		title: 		'Wiegenlicht'
+		year: 		2009
+		size: 		70 x 160 cm
+		material: 	'Öl auf Leinwand'
+		buy:
+			canvas:
+				-
+					size: 70 x 160 cm
+					price: 580 EUR
+				-
+					size: 30 x 69 cm
+					price: 95 EUR
+			poster:
+				size: 53 x 100 cm
+				price: 150 EUR
+			postcard:
+				price: 1.50 EUR
+	-
+		id: 		laubschatten
+		title: 		'Laubschatten'
+		group: 		'Cempedaks Aufbruch'
+		year: 		2007-2008
+		size: 		120 x 250 cm
+		material: 	'Öl auf Leinwand'
+		fruit:		cempedak
+		buy:
+			canvas:
+				-
+					size: 96 x 200 cm
+					price: 980 EUR
+			poster:
+				size: 53 x 100 cm
+				price: 150 EUR
+			postcard:
+				price: 1.50 EUR
+	-
+		id: 		stachelquell
+		title: 		'Stachelquell'
+		group: 		'Cempedaks Aufbruch'
+		year: 		2007
+		size: 		120 x 230 cm
+		material: 	'Öl auf Leinwand'
+		fruit:		cempedak
+		buy:
+			canvas:
+				-
+					size: 100 x 192 cm
+					price: 980 EUR
+				-
+					size: 82 x 157 cm
+					price: 590 EUR
+				-
+					size: 50 x 100 cm
+					price: 290 EUR
+			poster:
+				size: 53 x 100 cm
+				price: 150 EUR
+			postcard:
+				price: 1.50 EUR
+	-
+		id: 		streiflicht
+		title: 		'Frühes Streiflicht'
+		group: 		'Cempedaks Aufbruch'
+		year: 		2004-2006
+		size: 		110 x 220 cm
+		material: 	'Öl auf Leinwand'
+		fruit:		cempedak
+	-
+		id: 		derbesuch
+		title: 		'Der Besuch'
+		year: 		2003-2008
+		size: 		85 x 125 cm
+		material: 	'Öl auf Leinwand'

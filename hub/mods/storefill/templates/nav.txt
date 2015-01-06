@@ -1,0 +1,11 @@
+CTN: nav
+items:
+  -
+    label: Lorem ipsum 
+    url: #
+  -
+    label: dolor sit 
+    url: #
+  -
+    label: amet
+    url: #

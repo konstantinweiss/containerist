@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+<title>{{title}}</title>
+<link rel="stylesheet" type="text/css" media="all" href="{{stylesheet}}" />
+
+<style>
+  .ctn-meta {
+  display: none;
+}
+</style>
+
+</head>
+<body class="{{class}}">
+
+{{#containers}}
+<div class="ctn-meta">
+  <a href="http://{{origin}}">{{origin}}</a> (
+  <a href="{{origin}}.edit">edit</a> | 
+  <a href="{{renderer}}{{origin}}">rendered</a>)
+</div>
+
+ <div id="ctn{{i}}" show="embed" href="{{renderer}}{{origin}}{{render_params}}">
+
+		<div class="ctn-loading">
+			<img src="{{skinbase}}loading.gif"><br />
+			Container shipping ...<br />
+			{{origin}}
+		</div>
+	</div>
+{{/containers}}
+
+<script type="text/javascript" src="{{skinbase}}functions.js"></script>
+
+</body>
+</html>
