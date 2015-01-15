@@ -1,6 +1,0 @@
-CTN: stack
----
-navtree-mainnav
-home-intro
-home-image
-home-paintings

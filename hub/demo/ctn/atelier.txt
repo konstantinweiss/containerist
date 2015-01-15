@@ -1,2 +1,0 @@
-CTN: image
-image: regenwald.jpg

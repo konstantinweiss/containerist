@@ -1,8 +1,0 @@
-CTN: standard
----
-# Wiegenlicht
-
-2009, 70 x 160 cm, Öl auf Leinwand
-
-CTN: image
-image: wiegenlicht.jpg

@@ -1,5 +1,0 @@
-CTN: stack
----
-mainnav
-artist
-atelier

@@ -1,3 +1,0 @@
-CTN: image
-image: stachelquell.jpg
-caption: 'Dies ist eine Caption.'

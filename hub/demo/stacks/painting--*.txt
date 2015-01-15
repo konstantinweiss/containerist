@@ -1,4 +1,0 @@
-CTN: stack
----
-paintings-title
-paintings-image

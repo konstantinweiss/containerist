@@ -1,8 +1,0 @@
-CTN: navtree
-items:
-  -
-    label: Home
-    url: index
-  -
-    label: About
-    url: about

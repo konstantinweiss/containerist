@@ -1,8 +1,8 @@
 <?
+
 header ("Access-Control-Allow-Origin: *");
 header ("Content-Type: text/plain;charset=utf-8");
 error_reporting(E_ERROR | E_PARSE);
-
 include_once ('config.php');
 
 // PATH ------------------------------------------
@@ -66,7 +66,6 @@ if ($_GET['edit'] == 'stop') {
 
 
 // ROUTER ----------------------------------------
-
 if ($path->first == 'html') {
   $origin = substr ($path->full, 5);
   print mod ('skinner', $origin);
@@ -118,6 +117,12 @@ else {
 
 
 
+
+
+print "\n\n\n";
+// print_r ($hub);
+
+
 // MOD FUNCTIONS ---------------------------------
 
 function mod ($name, $id = false, $param2 = false, $param3 = false) {
@@ -133,8 +138,8 @@ function mod ($name, $id = false, $param2 = false, $param3 = false) {
     // find module name and mod name
     $mod_name = $name;
     $path_ = new Path ($modpath);
-    $module_name = $path_->second;
-    $module_dir = "$path_->first/$module_name/";
+    $module_name = $path_->third;
+    $module_dir = "$path_->first/$path_->second/$module_name/";
     ob_start(); // begin collecting output
     include ($modpath);
     $source = ob_get_clean(); // end collecting output
@@ -231,9 +236,10 @@ class Containerist_Node {
     $parts_ = $parts;
 
     $parts_count = count ($parts)-1;
+    $this->stack_last  = $parts[$parts_count];
     if ($parts_count > 0) {
       $stack_id = implode ('--', $parts);
-      $this->_set_stack_id($stack_id);
+      $this->_set_stack_id ($stack_id);
       // print $stack_id."\n";
       for ($i = $parts_count; $i > 0; $i--) {
         $parts[$i] = '*';
@@ -247,7 +253,7 @@ class Containerist_Node {
         // $this->_set_stack_id($stack_id);
       }
     } else {
-      $this->stack_id = $this->second;
+      $this->stack_id = extract_name ($this->second);
       $this->stack_path = $this->stack_id;
     }
   }
@@ -255,7 +261,7 @@ class Containerist_Node {
     if (!$this->stack_id) {
       // print $id_."\n";
       if (mod ('stack-exists', $id_)) {
-        $this->stack_id = $id_;
+        $this->stack_id = extract_name ($id_);
       }
     }
   }
@@ -277,6 +283,8 @@ class Containerist_Node {
 class Containerist_Hub {
   function Containerist_Hub () {
     $this->set_repo ();
+    $this->register_containers ();
+    $this->register_stacks ();
     $this->register_mods ();
   }
 
@@ -286,17 +294,39 @@ class Containerist_Hub {
     $this->repo = ($path->first == 'html') ? false : $path->first;
   }
 
+  function register_containers () {
+    $this->containers = $this->get_containers_by_context ('');
+    $this->static_containers = $this->get_containers_by_context ('static');
+  }
+
+  function register_stacks () {
+    $this->stacks = array ();
+    $dir = directory_to_array_recursive (rtrim($this->repo.'/'.STACKS_DIR, '/'));
+    foreach ($dir as $key=>$filepath) {
+      if (ends_with('.txt', $filepath)) {
+        $path = new Path ($filepath);
+        $name = substr ($path->last, 0, -4); // delete '.txt' from name
+        // add this stack
+        $this->stacks[$name] = $filepath;
+      }
+    }
+  }
+
   function register_mods () {
     $this->mods = array ();
     $this->container_mods = array ();
 
     // register repository mods
     if ($this->repo) {
-      $this->_register_mods_by_base ($this->repo);
+      $this->_register_mods_by_base ($this->repo.'/containers');
     }
 
-    // register global mods
-    $this->_register_mods_by_base ('mods');
+    // register global core mods
+    $this->_register_mods_by_base ('containerist/core');
+    // register global admin mods
+    $this->_register_mods_by_base ('containerist/admin');
+    // register global module mods
+    $this->_register_mods_by_base ('containerist/modules');
   }
 
   function _register_mods_by_base ($base) {
@@ -307,7 +337,7 @@ class Containerist_Hub {
         // 
         // option 1: moduleName-modName.mod
         // 
-        $name = $path->second.'-'.$path->third;
+        $name = $path->third.'-'.$path->fourth;
         $name = substr ($name, 0, -4); // delete '.php' from name
         // if this is a container mod
         if (ends_with ('.ctn', $name)) {
@@ -319,7 +349,7 @@ class Containerist_Hub {
         // 
         // option 2: modName.mod (without moduleName)
         // 
-        $name = $path->third;
+        $name = $path->last;
         $name = substr ($name, 0, -4); // delete '.php' from name
         // if this is a container mod
         if (ends_with ('.ctn', $name)) {
@@ -350,6 +380,33 @@ class Containerist_Hub {
       }
     }
     return $result;
+  }
+
+  function get_containers_by_context ($context) {
+    $containers = array ();
+    $dir = directory_to_array_recursive (rtrim ($this->repo.'/'.CONTAINERS_DIR.'/'.$context, '/'));
+    foreach ($dir as $key=>$filepath) {
+      if (ends_with('.txt', $filepath)) {
+        $path = new Path ($filepath);
+        $name = substr ($path->last, 0, -4); // delete '.txt' from name
+        // add this container
+        $containers[$name] = $filepath;
+      }
+    }
+    return $containers;
+  }
+
+  function mocs () {
+    $list = array ();
+    foreach ($this->container_mods as $key=>$value) {
+      if ($skip) {
+        $skip = false;
+        continue;
+      }
+      array_push ($list, $key);
+      $skip = true;
+    }
+    return $list;
   }
 
 }

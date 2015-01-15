@@ -1,2 +1,0 @@
-CTN: image
-image: http://lorempixel.com/g/1200/600/
